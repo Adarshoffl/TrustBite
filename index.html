@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustBite - Blockchain Food Traceability</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 min-h-screen text-slate-800 antialiased bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
+
+    <nav class="backdrop-blur-md bg-white/80 shadow-sm border-b border-white/50 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center shadow-lg shadow-emerald-500/30">
+                        <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-slate-900">TrustBite</span>
+                </div>
+                <div class="flex items-center space-x-2 sm:space-x-4 overflow-x-auto no-scrollbar">
+                    <button id="btn-home" onclick="switchTab('home')" class="nav-btn active-nav">Public Reports</button>
+                    <button id="btn-admin" onclick="switchTab('admin')" class="nav-btn inactive-nav">Admin Dashboard</button>
+                    <button id="btn-consumer" onclick="switchTab('consumer')" class="nav-btn inactive-nav">QR Scanner</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative">
+
+        <div id="tab-home" class="tab-content active-tab">
+            <div class="mb-8 animate-fade-in">
+                <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Public Verification Directory</h2>
+                <p class="text-sm text-slate-500 mt-2">Independent lab results anchored immutably on the blockchain.</p>
+            </div>
+
+            <div id="reports-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col relative">
+                    <div class="h-40 bg-white flex items-center justify-center relative p-4 border-b border-slate-100">
+                        <span class="badge-fail">Fail</span>
+                        <div class="stamp-fail">FAILED</div>
+                        <img src="https://placehold.co/200x200/ffffff/333333?text=Man+Matters\nCreatine" alt="Product" class="h-full object-contain">
+                    </div>
+                    <div class="bg-slate-50 p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg mb-3">Man Matters</h3>
+                            <ul class="text-[11px] text-slate-600 space-y-1.5 mb-4 leading-relaxed">
+                                <li><span class="font-bold text-slate-800">Product</span> - Creatine Gummies</li>
+                                <li><span class="font-bold text-slate-800">Batch No.</span> - MMCG25003</li>
+                                <li><span class="font-bold text-slate-800">Date</span> - 12 May 2026</li>
+                            </ul>
+                        </div>
+                        <button onclick="viewReport('tampered', 'Man Matters Creatine', 'MMCG25003', 'WARNING: Heavy Metals', 'https://placehold.co/400x400/ffffff/333333?text=Man+Matters\nCreatine')" class="btn-report">See Report ></button>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col relative">
+                    <div class="h-40 bg-white flex items-center justify-center relative p-4 border-b border-slate-100">
+                        <span class="badge-pass">Pass</span>
+                        <img src="https://placehold.co/200x200/ffffff/333333?text=Amul\nGold+Milk" alt="Product" class="h-full object-contain">
+                    </div>
+                    <div class="bg-slate-50 p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg mb-3">Amul</h3>
+                            <ul class="text-[11px] text-slate-600 space-y-1.5 mb-4 leading-relaxed">
+                                <li><span class="font-bold text-slate-800">Product</span> - Gold Milk (1L)</li>
+                                <li><span class="font-bold text-slate-800">Batch No.</span> - AG-02/SEP25</li>
+                                <li><span class="font-bold text-slate-800">Date</span> - 04 March 2026</li>
+                            </ul>
+                        </div>
+                        <button onclick="viewReport('verified', 'Amul Gold Milk', 'AG-02/SEP25', 'None Detected', 'https://placehold.co/400x400/ffffff/333333?text=Amul\nGold+Milk')" class="btn-report">See Report ></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="tab-admin" class="tab-content hidden max-w-3xl mx-auto animate-fade-in">
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Data Entry Node</h2>
+                <p class="text-sm text-slate-500 mt-1">Anchor cryptographic proofs to the public ledger.</p>
+            </div>
+
+            <div class="bg-white/80 backdrop-blur rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
+                <form id="admin-form" onsubmit="handleFormSubmit(event)" class="p-6 sm:p-8">
+                    
+                    <h3 class="text-lg font-semibold text-slate-800 border-b border-slate-200 pb-2 mb-4">Batch Details</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Batch ID *</label>
+                            <input type="text" id="inputId" required placeholder="e.g. TB-2026X" class="form-input">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Product Name *</label>
+                            <input type="text" id="inputProduct" required placeholder="e.g. Organic Cow Milk" class="form-input">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Source / Brand Name *</label>
+                            <input type="text" id="inputBrand" required placeholder="e.g. Green Valley Farms" class="form-input">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Collection Date *</label>
+                            <input type="date" id="inputDate" required class="form-input">
+                        </div>
+                    </div>
+
+                    <h3 class="text-lg font-semibold text-slate-800 border-b border-slate-200 pb-2 mb-4">Lab Testing Data</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Fat Percentage (%)</label>
+                            <input type="number" step="0.1" required placeholder="4.5" class="form-input">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">pH Value (0-14)</label>
+                            <input type="number" step="0.1" min="0" max="14" required placeholder="6.7" class="form-input">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">SNF (%)</label>
+                            <input type="number" step="0.1" required placeholder="8.5" class="form-input">
+                        </div>
+                        <div class="sm:col-span-3">
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Adulteration Tests</label>
+                            <select id="inputAdulterant" class="form-input bg-white cursor-pointer">
+                                <option value="none">None Detected (Pass)</option>
+                                <option value="detergent">Detergent Found (Fail)</option>
+                                <option value="urea">Urea Found (Fail)</option>
+                                <option value="starch">Starch Found (Fail)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-end border-t border-slate-200 pt-6">
+                        <button type="submit" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg shadow-emerald-500/30 transition-all active:scale-95 flex items-center">
+                            Anchor to Blockchain
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="tab-consumer" class="tab-content hidden max-w-5xl mx-auto animate-slide-up">
+            
+            <div id="scanner-overlay" class="hidden flex-col items-center justify-center py-32">
+                <div class="relative w-48 h-48 border-4 border-emerald-500/30 rounded-3xl overflow-hidden flex items-center justify-center mb-6 bg-white shadow-inner">
+                    <div class="w-full h-1 bg-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.8)] absolute animate-scan"></div>
+                    <svg class="w-16 h-16 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm14 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/></svg>
+                </div>
+                <p class="text-emerald-600 font-bold animate-pulse text-lg tracking-wide">Verifying Blockchain Hash...</p>
+            </div>
+
+            <div id="passport-card" class="bg-white rounded-xl shadow-xl border border-slate-200 overflow-hidden relative transition-all duration-500 flex flex-col md:flex-row hidden">
+                
+                <div class="flex-1 p-6 sm:p-8 md:border-r border-slate-200">
+                    <div class="flex justify-between items-start mb-6 border-b border-slate-200 pb-4">
+                        <div>
+                            <p class="text-emerald-600 text-xs font-bold uppercase tracking-widest mb-1">Blockchain Verified Profile</p>
+                            <h2 id="display-name" class="text-3xl font-bold text-slate-900">Product Name</h2>
+                            <p class="text-slate-500 text-sm mt-1">Batch No: <span id="display-batch" class="font-mono font-medium text-slate-800">ID</span></p>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#e6f2ff] border border-[#cce5ff] rounded mb-6">
+                        <div class="p-3 border-b border-[#cce5ff] font-semibold text-slate-700 bg-[#d9edf7]">Product Specifications</div>
+                        <div class="p-4 text-sm text-slate-700 bg-white leading-relaxed">
+                            FAT (%) 6.0 min<br>
+                            SNF (%) 9.0 min
+                        </div>
+                    </div>
+
+                    <table class="w-full text-sm text-left text-slate-700 mb-6 border border-[#cce5ff]">
+                        <thead class="bg-[#d9edf7] border-b border-[#cce5ff]">
+                            <tr>
+                                <th class="p-3 font-semibold w-2/3">Nutritional Information*</th>
+                                <th class="p-3 font-semibold text-right border-l border-[#cce5ff]">Per 100ml</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-[#e6f2ff]">
+                            <tr class="hover:bg-slate-50 transition-colors"><td class="p-3">Energy, kcal</td><td class="p-3 text-right border-l border-[#e6f2ff]">87</td></tr>
+                            <tr class="hover:bg-slate-50 transition-colors"><td class="p-3">Total Fat, g</td><td class="p-3 text-right border-l border-[#e6f2ff]">6.0</td></tr>
+                            <tr class="hover:bg-slate-50 transition-colors"><td class="p-3">Saturated fat, g</td><td class="p-3 text-right border-l border-[#e6f2ff]">3.8</td></tr>
+                            <tr class="hover:bg-slate-50 transition-colors"><td class="p-3">Trans fat, g</td><td class="p-3 text-right border-l border-[#e6f2ff]">0.0</td></tr>
+                            <tr class="hover:bg-slate-50 transition-colors"><td class="p-3">Total Carbohydrate, g</td><td class="p-3 text-right border-l border-[#e6f2ff]">5.0</td></tr>
+                            <tr class="hover:bg-slate-50 transition-colors"><td class="p-3">Added Sugar, g</td><td class="p-3 text-right border-l border-[#e6f2ff]">0.0</td></tr>
+                            <tr class="hover:bg-slate-50 transition-colors"><td class="p-3">Protein, g</td><td class="p-3 text-right border-l border-[#e6f2ff]">3.0</td></tr>
+                            <tr class="hover:bg-slate-50 transition-colors"><td class="p-3">Calcium, mg</td><td class="p-3 text-right border-l border-[#e6f2ff]">120</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="text-xs text-slate-400 mb-6">*Approx. values. Sourced from standard spec sheet.</p>
+
+                    <table class="w-full text-sm text-left text-slate-700 border border-[#cce5ff]">
+                        <tbody class="divide-y divide-[#cce5ff]">
+                            <tr class="bg-[#d9edf7]">
+                                <td class="p-3 font-semibold w-1/3 border-r border-[#cce5ff]">Shelf Life</td>
+                                <td class="p-3 bg-white">48 Hours from the date of packing if kept under refrigeration below 8°C</td>
+                            </tr>
+                            <tr class="bg-[#d9edf7]">
+                                <td class="p-3 font-semibold w-1/3 border-r border-[#cce5ff]">Storage condition</td>
+                                <td class="p-3 bg-white">Under Refrigeration (Below 8°C)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="w-full md:w-80 bg-slate-50 flex flex-col p-6 sm:p-8">
+                    
+                    <div id="status-box" class="rounded-xl p-5 mb-6 flex items-start space-x-3 border shadow-sm">
+                        <div id="status-icon" class="flex-shrink-0"></div>
+                        <div>
+                            <h4 id="status-title" class="font-bold text-sm leading-tight mb-1">Status</h4>
+                            <p id="status-desc" class="text-[11px] leading-relaxed opacity-90 font-medium">Description</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 p-4 rounded-xl mb-6 flex items-center justify-center shadow-inner">
+                        <img id="display-image" src="" alt="Product View" class="w-full h-48 object-contain rounded">
+                    </div>
+
+                    <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
+                        <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3 border-b border-slate-100 pb-2">On-Chain Telemetry</h4>
+                        <div class="text-xs text-slate-500 mb-2 flex justify-between">
+                            <span>Testing Auth:</span> 
+                            <span class="font-bold text-slate-800">Eurofins Lab</span>
+                        </div>
+                        <div class="text-xs text-slate-500 flex justify-between">
+                            <span>Adulterants:</span> 
+                            <span id="adulterant-result" class="font-bold">None</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <div id="toast" class="fixed bottom-5 right-5 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 text-white px-6 py-3 rounded-xl shadow-2xl flex items-center gap-3 z-50">
+        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+        <span class="font-medium text-sm">New Batch Anchored & Added to Directory!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
