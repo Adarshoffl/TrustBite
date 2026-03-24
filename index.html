@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    
     <title>TrustBite - Blockchain Food Traceability</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -30,7 +32,7 @@
         </div>
     </nav>
 
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative">
 
         <div id="tab-home" class="tab-content active-tab">
             <div class="mb-8 animate-fade-in">
@@ -41,28 +43,10 @@
             <div id="reports-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 
                 <div class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col relative">
-                    <div class="h-40 bg-white flex items-center justify-center relative p-4 border-b border-slate-100">
+                    <div class="h-48 bg-slate-100 flex items-center justify-center relative p-4 border-b border-slate-100 overflow-hidden">
                         <span class="badge-fail">Fail</span>
                         <div class="stamp-fail">FAILED</div>
-                        <img src="https://placehold.co/200x200/ffffff/333333?text=Man+Matters\nCreatine" alt="Product" class="h-full object-contain">
-                    </div>
-                    <div class="bg-slate-50 p-5 flex-grow flex flex-col justify-between">
-                        <div>
-                            <h3 class="font-bold text-slate-900 text-lg mb-3">Man Matters</h3>
-                            <ul class="text-[11px] text-slate-600 space-y-1.5 mb-4 leading-relaxed">
-                                <li><span class="font-bold text-slate-800">Product</span> - Creatine Gummies</li>
-                                <li><span class="font-bold text-slate-800">Batch No.</span> - MMCG25003</li>
-                                <li><span class="font-bold text-slate-800">Date</span> - 12 May 2026</li>
-                            </ul>
-                        </div>
-                        <button onclick="viewReport('tampered', 'Man Matters Creatine', 'MMCG25003', 'WARNING: Heavy Metals', 'https://placehold.co/400x400/ffffff/333333?text=Man+Matters\nCreatine')" class="btn-report">See Report ></button>
-                    </div>
-                </div>
-
-                <div class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col relative">
-                    <div class="h-40 bg-white flex items-center justify-center relative p-4 border-b border-slate-100">
-                        <span class="badge-pass">Pass</span>
-                        <img src="https://placehold.co/200x200/ffffff/333333?text=Amul\nGold+Milk" alt="Product" class="h-full object-contain">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Glass_of_Milk_%2833657535532%29.jpg/500px-Glass_of_Milk_%2833657535532%29.jpg" alt="Milk" class="w-full h-full object-cover rounded-xl opacity-90">
                     </div>
                     <div class="bg-slate-50 p-5 flex-grow flex flex-col justify-between">
                         <div>
@@ -73,7 +57,137 @@
                                 <li><span class="font-bold text-slate-800">Date</span> - 04 March 2026</li>
                             </ul>
                         </div>
-                        <button onclick="viewReport('verified', 'Amul Gold Milk', 'AG-02/SEP25', 'None Detected', 'https://placehold.co/400x400/ffffff/333333?text=Amul\nGold+Milk')" class="btn-report">See Report ></button>
+                        <button onclick="viewReport('tampered', 'Amul Gold Milk', 'AG-02/SEP25', 'WARNING: High Urea / Low FAT', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Glass_of_Milk_%2833657535532%29.jpg/500px-Glass_of_Milk_%2833657535532%29.jpg')" class="btn-report">See Report ></button>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col relative">
+                    <div class="h-48 bg-slate-100 flex items-center justify-center relative p-4 border-b border-slate-100 overflow-hidden">
+                        <span class="badge-fail">Fail</span>
+                        <div class="stamp-fail">FAILED</div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Chilli_powder_01.jpg/500px-Chilli_powder_01.jpg" alt="Chilli Powder" class="w-full h-full object-cover rounded-xl opacity-90">
+                    </div>
+                    <div class="bg-slate-50 p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg mb-3">Everest</h3>
+                            <ul class="text-[11px] text-slate-600 space-y-1.5 mb-4 leading-relaxed">
+                                <li><span class="font-bold text-slate-800">Product</span> - Kashmiri Chilli Powder</li>
+                                <li><span class="font-bold text-slate-800">Batch No.</span> - E280674318</li>
+                                <li><span class="font-bold text-slate-800">Date</span> - 01 March 2026</li>
+                            </ul>
+                        </div>
+                        <button onclick="viewReport('tampered', 'Everest Chilli Powder', 'E280674318', 'WARNING: Sudan Red Dye Detected', 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Chilli_powder_01.jpg/500px-Chilli_powder_01.jpg')" class="btn-report">See Report ></button>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col relative">
+                    <div class="h-48 bg-white flex items-center justify-center relative p-4 border-b border-slate-100 overflow-hidden">
+                        <span class="badge-pass">Pass</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Yogurt_with_spoon.jpg/500px-Yogurt_with_spoon.jpg" alt="Curd" class="w-full h-full object-cover rounded-xl">
+                    </div>
+                    <div class="bg-slate-50 p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg mb-3">Mother Dairy</h3>
+                            <ul class="text-[11px] text-slate-600 space-y-1.5 mb-4 leading-relaxed">
+                                <li><span class="font-bold text-slate-800">Product</span> - Classic Premium Curd</li>
+                                <li><span class="font-bold text-slate-800">Batch No.</span> - MDC-4091A</li>
+                                <li><span class="font-bold text-slate-800">Date</span> - 15 March 2026</li>
+                            </ul>
+                        </div>
+                        <button onclick="viewReport('verified', 'Mother Dairy Curd', 'MDC-4091A', 'None Detected', 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Yogurt_with_spoon.jpg/500px-Yogurt_with_spoon.jpg')" class="btn-report">See Report ></button>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col relative">
+                    <div class="h-48 bg-white flex items-center justify-center relative p-4 border-b border-slate-100 overflow-hidden">
+                        <span class="badge-pass">Pass</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Whey_protein_powder_and_scoop.jpg/500px-Whey_protein_powder_and_scoop.jpg" alt="Whey Protein" class="w-full h-full object-cover rounded-xl">
+                    </div>
+                    <div class="bg-slate-50 p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg mb-3">Optimum Nutrition</h3>
+                            <ul class="text-[11px] text-slate-600 space-y-1.5 mb-4 leading-relaxed">
+                                <li><span class="font-bold text-slate-800">Product</span> - Gold Standard Whey</li>
+                                <li><span class="font-bold text-slate-800">Batch No.</span> - ON-WHEY-992</li>
+                                <li><span class="font-bold text-slate-800">Date</span> - 20 Feb 2026</li>
+                            </ul>
+                        </div>
+                        <button onclick="viewReport('verified', 'ON Gold Standard Whey', 'ON-WHEY-992', 'None Detected', 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Whey_protein_powder_and_scoop.jpg/500px-Whey_protein_powder_and_scoop.jpg')" class="btn-report">See Report ></button>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col relative">
+                    <div class="h-48 bg-slate-100 flex items-center justify-center relative p-4 border-b border-slate-100 overflow-hidden">
+                        <span class="badge-fail">Fail</span>
+                        <div class="stamp-fail">FAILED</div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Creatine_monohydrate_powder.jpg/500px-Creatine_monohydrate_powder.jpg" alt="Creatine Tub" class="w-full h-full object-cover rounded-xl opacity-90">
+                    </div>
+                    <div class="bg-slate-50 p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg mb-3">Man Matters</h3>
+                            <ul class="text-[11px] text-slate-600 space-y-1.5 mb-4 leading-relaxed">
+                                <li><span class="font-bold text-slate-800">Product</span> - Creatine Powder</li>
+                                <li><span class="font-bold text-slate-800">Batch No.</span> - MMCG25003</li>
+                                <li><span class="font-bold text-slate-800">Date</span> - 12 May 2026</li>
+                            </ul>
+                        </div>
+                        <button onclick="viewReport('tampered', 'Man Matters Creatine', 'MMCG25003', 'WARNING: Heavy Metals (Lead)', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Creatine_monohydrate_powder.jpg/500px-Creatine_monohydrate_powder.jpg')" class="btn-report">See Report ></button>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col relative">
+                    <div class="h-48 bg-white flex items-center justify-center relative p-4 border-b border-slate-100 overflow-hidden">
+                        <span class="badge-pass">Pass</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Omega-3_capsules.jpg/500px-Omega-3_capsules.jpg" alt="Omega 3 Bottle" class="w-full h-full object-cover rounded-xl">
+                    </div>
+                    <div class="bg-slate-50 p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg mb-3">Pure Serving</h3>
+                            <ul class="text-[11px] text-slate-600 space-y-1.5 mb-4 leading-relaxed">
+                                <li><span class="font-bold text-slate-800">Product</span> - Omega-3 Fish Oil</li>
+                                <li><span class="font-bold text-slate-800">Batch No.</span> - TB-B02/SEP25</li>
+                                <li><span class="font-bold text-slate-800">Date</span> - 04 March 2026</li>
+                            </ul>
+                        </div>
+                        <button onclick="viewReport('verified', 'Pure Serving Omega-3', 'TB-B02/SEP25', 'None Detected', 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Omega-3_capsules.jpg/500px-Omega-3_capsules.jpg')" class="btn-report">See Report ></button>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col relative">
+                    <div class="h-48 bg-slate-100 flex items-center justify-center relative p-4 border-b border-slate-100 overflow-hidden">
+                        <span class="badge-fail">Fail</span>
+                        <div class="stamp-fail">FAILED</div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Fresh_Orange_Juice.jpg/500px-Fresh_Orange_Juice.jpg" alt="ORS Drink" class="w-full h-full object-cover rounded-xl opacity-90">
+                    </div>
+                    <div class="bg-slate-50 p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg mb-3">FDC Limited</h3>
+                            <ul class="text-[11px] text-slate-600 space-y-1.5 mb-4 leading-relaxed">
+                                <li><span class="font-bold text-slate-800">Product</span> - Electral ORS Powder</li>
+                                <li><span class="font-bold text-slate-800">Batch No.</span> - FDC-ORS-827</li>
+                                <li><span class="font-bold text-slate-800">Date</span> - 10 March 2026</li>
+                            </ul>
+                        </div>
+                        <button onclick="viewReport('tampered', 'Electral ORS', 'FDC-ORS-827', 'WARNING: Low Sodium / Bacterial Count', 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Fresh_Orange_Juice.jpg/500px-Fresh_Orange_Juice.jpg')" class="btn-report">See Report ></button>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col relative">
+                    <div class="h-48 bg-slate-100 flex items-center justify-center relative p-4 border-b border-slate-100 overflow-hidden">
+                        <span class="badge-fail">Fail</span>
+                        <div class="stamp-fail">FAILED</div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Honey_Jar.jpg/500px-Honey_Jar.jpg" alt="Honey Jar" class="w-full h-full object-cover rounded-xl opacity-90">
+                    </div>
+                    <div class="bg-slate-50 p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg mb-3">Dabur</h3>
+                            <ul class="text-[11px] text-slate-600 space-y-1.5 mb-4 leading-relaxed">
+                                <li><span class="font-bold text-slate-800">Product</span> - Pure Honey (500g)</li>
+                                <li><span class="font-bold text-slate-800">Batch No.</span> - DB-HNY-102</li>
+                                <li><span class="font-bold text-slate-800">Date</span> - 18 March 2026</li>
+                            </ul>
+                        </div>
+                        <button onclick="viewReport('tampered', 'Dabur Pure Honey', 'DB-HNY-102', 'WARNING: Sugar Syrup Detected', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Honey_Jar.jpg/500px-Honey_Jar.jpg')" class="btn-report">See Report ></button>
                     </div>
                 </div>
 
@@ -113,15 +227,15 @@
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
                         <div>
                             <label class="block text-sm font-medium text-slate-700 mb-1">Fat Percentage (%)</label>
-                            <input type="number" step="0.1" required placeholder="4.5" class="form-input">
+                            <input type="number" step="0.1" required id="inputFat" placeholder="4.5" class="form-input">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-slate-700 mb-1">pH Value (0-14)</label>
-                            <input type="number" step="0.1" min="0" max="14" required placeholder="6.7" class="form-input">
+                            <input type="number" step="0.1" min="0" max="14" required id="inputPH" placeholder="6.7" class="form-input">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-slate-700 mb-1">SNF (%)</label>
-                            <input type="number" step="0.1" required placeholder="8.5" class="form-input">
+                            <input type="number" step="0.1" required id="inputSNF" placeholder="8.5" class="form-input">
                         </div>
                         <div class="sm:col-span-3">
                             <label class="block text-sm font-medium text-slate-700 mb-1">Adulteration Tests</label>
@@ -130,6 +244,8 @@
                                 <option value="detergent">Detergent Found (Fail)</option>
                                 <option value="urea">Urea Found (Fail)</option>
                                 <option value="starch">Starch Found (Fail)</option>
+                                <option value="sudan_red">Sudan Red / Brick Powder (Fail)</option>
+                                <option value="sugar_syrup">Sugar Syrup Detected (Fail)</option>
                             </select>
                         </div>
                     </div>
@@ -165,42 +281,28 @@
                     </div>
 
                     <div class="bg-[#e6f2ff] border border-[#cce5ff] rounded mb-6">
-                        <div class="p-3 border-b border-[#cce5ff] font-semibold text-slate-700 bg-[#d9edf7]">Product Specifications</div>
-                        <div class="p-4 text-sm text-slate-700 bg-white leading-relaxed">
-                            FAT (%) 6.0 min<br>
-                            SNF (%) 9.0 min
-                        </div>
+                        <div class="p-3 border-b border-[#cce5ff] font-semibold text-slate-700 bg-[#d9edf7]">Critical Product Specifications</div>
+                        <div id="dynamic-specs" class="p-4 text-sm text-slate-700 bg-white leading-relaxed">
+                            </div>
                     </div>
 
                     <table class="w-full text-sm text-left text-slate-700 mb-6 border border-[#cce5ff]">
                         <thead class="bg-[#d9edf7] border-b border-[#cce5ff]">
                             <tr>
-                                <th class="p-3 font-semibold w-2/3">Nutritional Information*</th>
-                                <th class="p-3 font-semibold text-right border-l border-[#cce5ff]">Per 100ml</th>
+                                <th class="p-3 font-semibold w-2/3">Detailed Lab Analysis*</th>
+                                <th class="p-3 font-semibold text-right border-l border-[#cce5ff]">Numeric Values</th>
                             </tr>
                         </thead>
-                        <tbody class="bg-white divide-y divide-[#e6f2ff]">
-                            <tr class="hover:bg-slate-50 transition-colors"><td class="p-3">Energy, kcal</td><td class="p-3 text-right border-l border-[#e6f2ff]">87</td></tr>
-                            <tr class="hover:bg-slate-50 transition-colors"><td class="p-3">Total Fat, g</td><td class="p-3 text-right border-l border-[#e6f2ff]">6.0</td></tr>
-                            <tr class="hover:bg-slate-50 transition-colors"><td class="p-3">Saturated fat, g</td><td class="p-3 text-right border-l border-[#e6f2ff]">3.8</td></tr>
-                            <tr class="hover:bg-slate-50 transition-colors"><td class="p-3">Trans fat, g</td><td class="p-3 text-right border-l border-[#e6f2ff]">0.0</td></tr>
-                            <tr class="hover:bg-slate-50 transition-colors"><td class="p-3">Total Carbohydrate, g</td><td class="p-3 text-right border-l border-[#e6f2ff]">5.0</td></tr>
-                            <tr class="hover:bg-slate-50 transition-colors"><td class="p-3">Added Sugar, g</td><td class="p-3 text-right border-l border-[#e6f2ff]">0.0</td></tr>
-                            <tr class="hover:bg-slate-50 transition-colors"><td class="p-3">Protein, g</td><td class="p-3 text-right border-l border-[#e6f2ff]">3.0</td></tr>
-                            <tr class="hover:bg-slate-50 transition-colors"><td class="p-3">Calcium, mg</td><td class="p-3 text-right border-l border-[#e6f2ff]">120</td></tr>
-                        </tbody>
+                        <tbody id="dynamic-nutrition" class="bg-white divide-y divide-[#e6f2ff]">
+                            </tbody>
                     </table>
-                    <p class="text-xs text-slate-400 mb-6">*Approx. values. Sourced from standard spec sheet.</p>
+                    <p class="text-xs text-slate-400 mb-6">*Values extracted directly from cryptographic lab receipt.</p>
 
                     <table class="w-full text-sm text-left text-slate-700 border border-[#cce5ff]">
                         <tbody class="divide-y divide-[#cce5ff]">
                             <tr class="bg-[#d9edf7]">
-                                <td class="p-3 font-semibold w-1/3 border-r border-[#cce5ff]">Shelf Life</td>
-                                <td class="p-3 bg-white">48 Hours from the date of packing if kept under refrigeration below 8°C</td>
-                            </tr>
-                            <tr class="bg-[#d9edf7]">
-                                <td class="p-3 font-semibold w-1/3 border-r border-[#cce5ff]">Storage condition</td>
-                                <td class="p-3 bg-white">Under Refrigeration (Below 8°C)</td>
+                                <td class="p-3 font-semibold w-1/3 border-r border-[#cce5ff]">Authentication</td>
+                                <td class="p-3 bg-white font-mono text-xs text-slate-500">Hash: 0x4f8a...9c21b secured via TrustBite Node</td>
                             </tr>
                         </tbody>
                     </table>
@@ -216,20 +318,29 @@
                         </div>
                     </div>
 
-                    <div class="bg-white border border-slate-200 p-4 rounded-xl mb-6 flex items-center justify-center shadow-inner">
-                        <img id="display-image" src="" alt="Product View" class="w-full h-48 object-contain rounded">
+                    <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm mb-6 flex flex-col items-center">
+                        <h4 id="metric-category" class="text-[10px] font-bold text-slate-800 uppercase tracking-widest mb-4 border-b border-slate-100 pb-2 w-full text-center">CATEGORY</h4>
+                        
+                        <div class="flex justify-center items-center gap-6 mb-4">
+                            <div class="w-20 h-20 rounded-full border-[5px] border-slate-300 flex flex-col justify-center items-center bg-slate-50 text-center">
+                                <span class="text-[9px] text-slate-500 uppercase tracking-wide">Limit</span>
+                                <span id="metric-limit-val" class="text-xl font-bold text-slate-700 leading-none mt-1 mb-0.5">0</span>
+                                <span id="metric-limit-unit" class="text-[9px] text-slate-500 font-medium leading-none">unit</span>
+                            </div>
+                            <div id="metric-found-circle" class="w-20 h-20 rounded-full border-[5px] flex flex-col justify-center items-center bg-white shadow-sm text-center">
+                                <span class="text-[9px] text-slate-500 uppercase tracking-wide">Found</span>
+                                <span id="metric-found-val" class="text-xl font-bold leading-none mt-1 mb-0.5">0</span>
+                                <span id="metric-found-unit" class="text-[9px] text-slate-500 font-medium leading-none">unit</span>
+                            </div>
+                        </div>
+                        
+                        <p id="metric-reason" class="text-[11px] text-slate-600 text-center leading-relaxed bg-slate-50 p-2 rounded w-full border border-slate-100">
+                            Detailed reason goes here.
+                        </p>
                     </div>
 
-                    <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
-                        <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3 border-b border-slate-100 pb-2">On-Chain Telemetry</h4>
-                        <div class="text-xs text-slate-500 mb-2 flex justify-between">
-                            <span>Testing Auth:</span> 
-                            <span class="font-bold text-slate-800">Eurofins Lab</span>
-                        </div>
-                        <div class="text-xs text-slate-500 flex justify-between">
-                            <span>Adulterants:</span> 
-                            <span id="adulterant-result" class="font-bold">None</span>
-                        </div>
+                    <div class="bg-white border border-slate-200 p-2 rounded-xl flex items-center justify-center shadow-inner h-48 overflow-hidden">
+                        <img id="display-image" src="" alt="Product View" class="w-full h-full object-cover rounded-lg">
                     </div>
 
                 </div>
@@ -237,11 +348,6 @@
         </div>
 
     </main>
-
-    <div id="toast" class="fixed bottom-5 right-5 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 text-white px-6 py-3 rounded-xl shadow-2xl flex items-center gap-3 z-50">
-        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-        <span class="font-medium text-sm">New Batch Anchored & Added to Directory!</span>
-    </div>
 
     <script src="script.js"></script>
 </body>
